@@ -23,7 +23,7 @@ for i in range(num_disks, 0, -1):
   left_stack.push(i)
 
 num_optimal_moves = (2**num_disks) - 1
-print(f"\nThe fastest you can solve this game is in {num_optimal_moves} moves")
+print(f"\nThe fastest you can solve this game is in {num_optimal_moves} moves\n\n Tip: The right side of list is the top of the stack")
 
 # Get User Input
 def get_input():
@@ -33,7 +33,7 @@ def get_input():
       name = stacks[i].get_name()
       letter = choices[i]
       print(f"Enter {letter} for {name}")
-    user_input = input("")
+    user_input = input("").upper()
     if user_input in choices:
       for i in range(len(stacks)):
         if user_input == choices[i]:
@@ -58,5 +58,5 @@ while(right_stack.get_size() != num_disks):
       num_user_moves += 1
       break
     else:
-      print("\n\nInvalid Move. Try Again")
+      print("\n\nYou cannot put a larger number on top of a smaller number! Try again.")
 print("\n\nYou completed the game in {0} moves, and the optimal number of moves is {1}".format(num_user_moves, num_optimal_moves))
